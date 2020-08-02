@@ -5,6 +5,7 @@
 # Source code
 !gradle/**
 !src/**
+!results/**
 
 # Metadata
 !build.gradle

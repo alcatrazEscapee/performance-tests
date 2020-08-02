@@ -1,0 +1,19 @@
+Benchmark                                                              Mode  Cnt    Score    Error  Units
+WeightedListBenchmark.benchmarkDedicatedListWeightedListGet1           avgt    9    3.147 ±  0.781  ns/op
+WeightedListBenchmark.benchmarkDedicatedListWeightedListGet1:·stack    avgt           NaN             ---
+WeightedListBenchmark.benchmarkParallelListWeightedListGet1            avgt    9   24.647 ±  5.422  ns/op
+WeightedListBenchmark.benchmarkParallelListWeightedListGet1:·stack     avgt           NaN             ---
+WeightedListBenchmark.benchmarkParallelListWeightedListGet10           avgt    9   38.915 ±  6.895  ns/op
+WeightedListBenchmark.benchmarkParallelListWeightedListGet10:·stack    avgt           NaN             ---
+WeightedListBenchmark.benchmarkParallelListWeightedListGet100          avgt    9   86.955 ±  6.614  ns/op
+WeightedListBenchmark.benchmarkParallelListWeightedListGet100:·stack   avgt           NaN             ---
+WeightedListBenchmark.benchmarkParallelListWeightedListGet1000         avgt    9  713.353 ± 73.371  ns/op
+WeightedListBenchmark.benchmarkParallelListWeightedListGet1000:·stack  avgt           NaN             ---
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet1                 avgt    9   20.340 ±  1.355  ns/op
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet1:·stack          avgt           NaN             ---
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet10                avgt    9   39.033 ±  3.143  ns/op
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet10:·stack         avgt           NaN             ---
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet100               avgt    9   56.041 ±  3.688  ns/op
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet100:·stack        avgt           NaN             ---
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet1000              avgt    9  100.297 ± 13.930  ns/op
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet1000:·stack       avgt           NaN             ---
