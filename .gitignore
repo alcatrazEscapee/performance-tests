@@ -1,0 +1,15 @@
+*
+!*/
+!.gitignore
+
+# Source code
+!gradle/**
+!src/**
+
+# Metadata
+!build.gradle
+!gradle.properties
+!gradlew
+!gradlew.bat
+!LICENSE.md
+!README.md

@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'me.champeau.gradle.jmh' version '0.5.0'
+}
+
+group 'com.alcatrazescapee'
+version '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+test {
+    useJUnitPlatform()
+    forkEvery 1
+}
+
+jmh {
+    jvmArgs = ['-Djmh.separateClasspathJAR=true']
+    include = [ 'weightedlist.WeightedListBenchmark' ]
+    benchmarkMode = ['avgt' ]
+    profilers = [ 'stack' ]
+    timeOnIteration = '5s'
+    warmup = '5s'
+    warmupIterations = 3
+    iterations = 3
+    fork = 3
+    timeUnit = 'ns'
+}
+
+tasks['jmh'].dependsOn(clean)
