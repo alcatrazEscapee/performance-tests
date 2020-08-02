@@ -15,7 +15,10 @@ public interface IWeightedList<E> extends Iterable<E>
     IWeightedList<Object> EMPTY = new IWeightedList<>()
     {
         @Override
-        public void add(double weight, Object element) {}
+        public void add(double weight, Object element)
+        {
+            throw new UnsupportedOperationException("Cannot add to EMPTY weighted list instance");
+        }
 
         @Override
         public Object get(Random random)
@@ -50,12 +53,15 @@ public interface IWeightedList<E> extends Iterable<E>
 
     static <E> IWeightedList<E> singleton(E element)
     {
-        return new IWeightedList<E>()
+        return new IWeightedList<>()
         {
             private final Collection<E> elementSet = Collections.singleton(element);
 
             @Override
-            public void add(double weight, E element) {}
+            public void add(double weight, E element)
+            {
+                throw new UnsupportedOperationException("Cannot add to singleton weighted list");
+            }
 
             @Override
             public E get(Random random)

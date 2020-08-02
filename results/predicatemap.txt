@@ -1,0 +1,7 @@
+Benchmark                                                Mode  Cnt     Score    Error  Units
+PredicateMapBenchmark.benchmarkFastIndexedQuery          avgt    9    30.319 ±  2.540  ns/op
+PredicateMapBenchmark.benchmarkGetRandomKey              avgt    9    11.745 ±  0.697  ns/op
+PredicateMapBenchmark.benchmarkIndexedQueryLoop          avgt    9    32.545 ±  1.989  ns/op
+PredicateMapBenchmark.benchmarkIndexedRecipeQueryStream  avgt    9    75.223 ±  3.455  ns/op
+PredicateMapBenchmark.benchmarkPredicateMapQueryLoop     avgt    9   641.333 ± 98.608  ns/op
+PredicateMapBenchmark.benchmarkPredicateMapQueryStream   avgt    9  1161.365 ± 87.354  ns/op

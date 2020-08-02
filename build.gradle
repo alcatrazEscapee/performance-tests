@@ -21,9 +21,8 @@ test {
 
 jmh {
     jvmArgs = ['-Djmh.separateClasspathJAR=true']
-    include = [ 'weightedlist.WeightedListBenchmark' ]
+    include = [ 'predicatemap.PredicateMapBenchmark' ]
     benchmarkMode = ['avgt' ]
-    profilers = [ 'stack' ]
     timeOnIteration = '5s'
     warmup = '5s'
     warmupIterations = 3
