@@ -1,7 +1,6 @@
 package weightedlist;
 
 import java.util.*;
-import java.util.function.ToDoubleFunction;
 
 /**
  * A weighted list implementation.

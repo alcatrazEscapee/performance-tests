@@ -28,3 +28,10 @@ The standard predicate map represents the vanilla crafting recipe approach. In r
 - Standard loops vastly outperform streams in this instance and should be used in performance-critical situations.
 - Using an index based map also vastly improves performance. Actual gains will vary based on how effective the index is.
 - The fast index map does not offer much benefit over the index map, although this may be mostly due to the effectiveness of the initial index map. Actual effects may vary based on the effectiveness of the index.
+
+
+### License
+
+Unless otherwise stated, all code and results are licensed under the MIT License.
+
+- `AliasTableWeightedList` and `ParallelListBinarySearchWeightedList` are modified from their original form and both are included with permission from the Apache License 2.0.

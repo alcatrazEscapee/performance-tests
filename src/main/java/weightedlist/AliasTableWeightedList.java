@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * This class has been modified from code from the original author under permission from the above license.
- * The license is included in this repository as per the license restrictions.
+ * Source: for-common (https://github.com/ogregoire/fror-common)
+ * It is used here under permission of the above license
+ * It has been modified to use IWeightedList for the purposes of this benchmark
  */
 
 package weightedlist;
