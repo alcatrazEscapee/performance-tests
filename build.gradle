@@ -11,18 +11,18 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.4.2'
+    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
 }
 
 test {
     useJUnitPlatform()
-    forkEvery 1
 }
 
 jmh {
     jvmArgs = ['-Djmh.separateClasspathJAR=true']
-    include = [ 'predicatemap.PredicateMapBenchmark' ]
-    benchmarkMode = ['avgt' ]
+    include = ['weightedlist.WeightedList']
+    benchmarkMode = ['avgt']
     timeOnIteration = '5s'
     warmup = '5s'
     warmupIterations = 3

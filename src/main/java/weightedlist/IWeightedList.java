@@ -10,7 +10,7 @@ import java.util.function.ToDoubleFunction;
  * @see ParallelListWeightedList
  * @see TreeMapWeightedList
  */
-public interface IWeightedList<E> extends Iterable<E>
+public interface IWeightedList<E>
 {
     IWeightedList<Object> EMPTY = new IWeightedList<>()
     {
@@ -25,24 +25,6 @@ public interface IWeightedList<E> extends Iterable<E>
         {
             return null;
         }
-
-        @Override
-        public Collection<Object> values()
-        {
-            return Collections.emptyList();
-        }
-
-        @Override
-        public boolean isEmpty()
-        {
-            return true;
-        }
-
-        @Override
-        public Iterator<Object> iterator()
-        {
-            return Collections.emptyIterator();
-        }
     };
 
     @SuppressWarnings("unchecked")
@@ -55,8 +37,6 @@ public interface IWeightedList<E> extends Iterable<E>
     {
         return new IWeightedList<>()
         {
-            private final Collection<E> elementSet = Collections.singleton(element);
-
             @Override
             public void add(double weight, E element)
             {
@@ -68,54 +48,10 @@ public interface IWeightedList<E> extends Iterable<E>
             {
                 return element;
             }
-
-            @Override
-            public Collection<E> values()
-            {
-                return elementSet;
-            }
-
-            @Override
-            public boolean isEmpty()
-            {
-                return false;
-            }
-
-            @Override
-            public Iterator<E> iterator()
-            {
-                return elementSet.iterator();
-            }
-
-            @Override
-            public String toString()
-            {
-                return "[" + element + "]";
-            }
         };
     }
 
     void add(double weight, E element);
 
-    default void add(Map<? extends E, ? extends Double> values)
-    {
-        for (Map.Entry<? extends E, ? extends Double> entry : values.entrySet())
-        {
-            add(entry.getValue(), entry.getKey());
-        }
-    }
-
-    default void add(Collection<? extends E> values, ToDoubleFunction<E> weightFunction)
-    {
-        for (E entry : values)
-        {
-            add(weightFunction.applyAsDouble(entry), entry);
-        }
-    }
-
     E get(Random random);
-
-    Collection<E> values();
-
-    boolean isEmpty();
 }

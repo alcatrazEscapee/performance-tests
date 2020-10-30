@@ -8,3 +8,23 @@ WeightedListBenchmark.benchmarkTreeMapWeightedListGet1                 avgt    9
 WeightedListBenchmark.benchmarkTreeMapWeightedListGet10                avgt    9   39.033 ±  3.143  ns/op
 WeightedListBenchmark.benchmarkTreeMapWeightedListGet100               avgt    9   56.041 ±  3.688  ns/op
 WeightedListBenchmark.benchmarkTreeMapWeightedListGet1000              avgt    9  100.297 ± 13.930  ns/op
+
+
+Benchmark                                                                   Mode  Cnt    Score    Error  Units
+WeightedListBenchmark.benchmarkAliasWeightedListGet1                        avgt    9   27.594 ±  0.381  ns/op
+WeightedListBenchmark.benchmarkAliasWeightedListGet10                       avgt    9   33.637 ±  1.330  ns/op
+WeightedListBenchmark.benchmarkAliasWeightedListGet100                      avgt    9   34.373 ±  1.689  ns/op
+WeightedListBenchmark.benchmarkAliasWeightedListGet1000                     avgt    9   36.072 ±  0.657  ns/op
+WeightedListBenchmark.benchmarkParallelListBinarySearchWeightedListGet1     avgt    9   19.271 ±  0.762  ns/op
+WeightedListBenchmark.benchmarkParallelListBinarySearchWeightedListGet10    avgt    9   38.892 ±  2.341  ns/op
+WeightedListBenchmark.benchmarkParallelListBinarySearchWeightedListGet100   avgt    9   58.935 ±  1.050  ns/op
+WeightedListBenchmark.benchmarkParallelListBinarySearchWeightedListGet1000  avgt    9   95.377 ±  8.099  ns/op
+WeightedListBenchmark.benchmarkParallelListWeightedListGet1                 avgt    9   19.124 ±  0.977  ns/op
+WeightedListBenchmark.benchmarkParallelListWeightedListGet10                avgt    9   30.821 ±  0.417  ns/op
+WeightedListBenchmark.benchmarkParallelListWeightedListGet100               avgt    9   79.818 ±  4.393  ns/op
+WeightedListBenchmark.benchmarkParallelListWeightedListGet1000              avgt    9  601.760 ± 39.528  ns/op
+WeightedListBenchmark.benchmarkSingletonListWeightedListGet1                avgt    9    2.966 ±  0.123  ns/op
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet1                      avgt    9   18.136 ±  0.281  ns/op
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet10                     avgt    9   35.746 ±  1.880  ns/op
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet100                    avgt    9   53.106 ±  1.851  ns/op
+WeightedListBenchmark.benchmarkTreeMapWeightedListGet1000                   avgt    9   93.978 ±  5.363  ns/op

@@ -4,13 +4,11 @@ import java.util.*;
 
 public class ParallelListWeightedList<E> implements IWeightedList<E>
 {
-    private final List<E> elements;
-    private final List<Weighted<E>> weightedElements;
+    private final List<Entry<E>> weightedElements;
     private double totalWeight;
 
     public ParallelListWeightedList()
     {
-        this.elements = new ArrayList<>();
         this.weightedElements = new ArrayList<>();
         this.totalWeight = 0;
     }
@@ -18,57 +16,38 @@ public class ParallelListWeightedList<E> implements IWeightedList<E>
     @Override
     public void add(double weight, E element)
     {
-        this.elements.add(element);
-        this.weightedElements.add(new Weighted<>(element, weight));
+        this.weightedElements.add(new Entry<>(element, weight));
         this.totalWeight += weight;
     }
 
     @Override
     public E get(Random random)
     {
-        if (isEmpty())
+        if (weightedElements.isEmpty())
         {
             return null;
         }
         double target = random.nextDouble() * totalWeight;
         double weight = 0;
-        for (int i = 0; i < weightedElements.size(); i++)
+        for (Entry<E> entry : weightedElements)
         {
-            weight += weightedElements.get(i).weight;
+            weight += entry.weight;
             if (weight > target)
             {
-                return elements.get(i);
+                return entry.value;
             }
         }
-        return elements.get(elements.size() - 1);
+        return weightedElements.get(weightedElements.size() - 1).value;
     }
 
-    @Override
-    public Collection<E> values()
+    private static final class Entry<E>
     {
-        return elements;
-    }
-
-    @Override
-    public boolean isEmpty()
-    {
-        return elements.isEmpty();
-    }
-
-    @Override
-    public Iterator<E> iterator()
-    {
-        return elements.iterator();
-    }
-
-    private static final class Weighted<E>
-    {
-        final E element;
+        final E value;
         final double weight;
 
-        Weighted(E element, double weight)
+        Entry(E value, double weight)
         {
-            this.element = element;
+            this.value = value;
             this.weight = weight;
         }
     }

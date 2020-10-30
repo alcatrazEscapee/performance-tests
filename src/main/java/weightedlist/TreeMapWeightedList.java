@@ -27,28 +27,4 @@ public class TreeMapWeightedList<E> implements IWeightedList<E>
         double value = random.nextDouble() * totalWeight;
         return map.higherEntry(value).getValue();
     }
-
-    @Override
-    public Collection<E> values()
-    {
-        return map.values();
-    }
-
-    @Override
-    public boolean isEmpty()
-    {
-        return map.isEmpty();
-    }
-
-    @Override
-    public String toString()
-    {
-        return map.toString();
-    }
-
-    @Override
-    public Iterator<E> iterator()
-    {
-        return map.values().iterator();
-    }
 }
