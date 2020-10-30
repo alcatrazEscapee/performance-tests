@@ -76,13 +76,13 @@ public class WeightedListBenchmark
         ALIAS_LIST_10.init();
         ALIAS_LIST_1.init();
     }
-/*
+
     @Benchmark
     public String benchmarkParallelListWeightedListGet1000()
     {
         return PARALLEL_LIST_1000.get(RANDOM);
     }
-*/
+
     @Benchmark
     public String benchmarkParallelListBinarySearchWeightedListGet1000()
     {
