@@ -11,8 +11,7 @@ repositories {
 }
 
 dependencies {
-    testCompile 'org.junit.jupiter:junit-jupiter-api:5.4.2'
-    testCompile 'org.junit.jupiter:junit-jupiter-engine:5.4.2'
+    implementation 'it.unimi.dsi:fastutil:8.3.1'
 }
 
 test {
@@ -21,7 +20,7 @@ test {
 
 jmh {
     jvmArgs = ['-Djmh.separateClasspathJAR=true']
-    include = ['weightedlist.WeightedList']
+    include = ['chunkarraysampler.ChunkArraySamplerBenchmark']
     benchmarkMode = ['avgt']
     timeOnIteration = '5s'
     warmup = '5s'

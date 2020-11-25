@@ -32,6 +32,6 @@ The standard predicate map represents the vanilla crafting recipe approach. In r
 
 ### License
 
-Unless otherwise stated, all code and results are licensed under the MIT License.
+Unless otherwise stated below, all code and results are licensed under the MIT License.
 
 - `AliasTableWeightedList` and `ParallelListBinarySearchWeightedList` are modified from their original form and both are included with permission from the Apache License 2.0.
