@@ -20,12 +20,12 @@ test {
 
 jmh {
     jvmArgs = ['-Djmh.separateClasspathJAR=true']
-    include = ['chunkarraysampler.ChunkArraySamplerBenchmark']
+    include = ['invsqrt.InvSqrtBenchmark']
     benchmarkMode = ['avgt']
     timeOnIteration = '5s'
     warmup = '5s'
-    warmupIterations = 3
-    iterations = 3
+    warmupIterations = 5
+    iterations = 5
     fork = 3
     timeUnit = 'ns'
 }
