@@ -36,6 +36,17 @@ public class InvSqrtBenchmark
         return sum;
     }
 
+    @Benchmark
+    public double javaPow()
+    {
+        double sum = 0;
+        for (double i = 0; i < 10_000; i++)
+        {
+            sum += Math.pow(i, -0.5);
+        }
+        return sum;
+    }
+
     /**
      * From https://en.wikipedia.org/wiki/Fast_inverse_square_root
      */

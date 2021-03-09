@@ -1,3 +1,8 @@
 Benchmark                     Mode  Cnt      Score     Error  Units
 InvSqrtBenchmark.fastInvSqrt  avgt   15  14147.378 ± 212.340  ns/op
 InvSqrtBenchmark.javaSqrt     avgt   15  25006.049 ± 325.823  ns/op
+
+Benchmark                     Mode  Cnt       Score      Error  Units
+InvSqrtBenchmark.fastInvSqrt  avgt   15   14555.021 ±  151.000  ns/op
+InvSqrtBenchmark.javaPow      avgt   15  592633.009 ± 5615.028  ns/op
+InvSqrtBenchmark.javaSqrt     avgt   15   25034.790 ±  229.988  ns/op
