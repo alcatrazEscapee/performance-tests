@@ -1,0 +1,9 @@
+Benchmark                                                         Mode  Cnt    Score    Error  Units
+DynamicNoiseLayerSkippingBenchmark.baseAboveRandomManyOctaves     avgt   15  257.090 ±  9.981  ns/op
+DynamicNoiseLayerSkippingBenchmark.baseAboveRandomOctaves         avgt   15  147.162 ±  5.766  ns/op
+DynamicNoiseLayerSkippingBenchmark.baseAboveZeroManyOctaves       avgt   15  252.763 ±  9.965  ns/op
+DynamicNoiseLayerSkippingBenchmark.baseAboveZeroOctaves           avgt   15  136.861 ±  6.815  ns/op
+DynamicNoiseLayerSkippingBenchmark.dynamicAboveRandomManyOctaves  avgt   15  236.431 ±  1.714  ns/op
+DynamicNoiseLayerSkippingBenchmark.dynamicAboveRandomOctaves      avgt   15  127.494 ±  4.792  ns/op
+DynamicNoiseLayerSkippingBenchmark.dynamicAboveZeroManyOctaves    avgt   15  281.299 ± 12.087  ns/op
+DynamicNoiseLayerSkippingBenchmark.dynamicAboveZeroOctaves        avgt   15  154.536 ±  6.760  ns/op
