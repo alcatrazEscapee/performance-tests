@@ -18,9 +18,9 @@ public abstract class DynamicNoise2D implements Noise2D
         float totalAmplitude = 0;
         for (int i = 0; i < octaves; i++)
         {
-            float amp = (float) Math.pow(persistence, octaves - i);
+            float amp = (float) Math.pow(persistence, i + 1);
 
-            frequency[i] = 1 << i;
+            frequency[i] = 1f / (1 << (octaves - i - 1));
             amplitude[i] = amp;
             totalAmplitude += amp;
         }
@@ -44,7 +44,7 @@ public abstract class DynamicNoise2D implements Noise2D
                 float value = 0;
                 for (int i = 0; i < octaves; i++)
                 {
-                    value += DynamicNoise2D.this.noise(x / frequency[i], y / frequency[i]) * amplitude[i];
+                    value += DynamicNoise2D.this.noise(x * frequency[i], y * frequency[i]) * amplitude[i];
                 }
                 return value;
             }
@@ -54,14 +54,14 @@ public abstract class DynamicNoise2D implements Noise2D
             {
                 if (t > this.max) return false;
                 if (t < this.min) return true;
-                float value = 0;
+                float value = -t;
                 for (int i = 0; i < octaves; i++)
                 {
-                    value += DynamicNoise2D.this.noise(x / frequency[i], y / frequency[i]) * amplitude[i];
-                    if (value > t + upperThresholds[i]) return true;
-                    if (value < t + lowerThresholds[i]) return false;
+                    value += DynamicNoise2D.this.noise(x * frequency[i], y * frequency[i]) * amplitude[i];
+                    if (value > upperThresholds[i]) return true;
+                    if (value < lowerThresholds[i]) return false;
                 }
-                return value > t;
+                return value > 0;
             }
         };
     }

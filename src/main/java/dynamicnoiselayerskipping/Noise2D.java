@@ -11,16 +11,16 @@ public interface Noise2D
         final float[] amplitude = new float[octaves];
         for (int i = 0; i < octaves; i++)
         {
-            float amp = (float) Math.pow(persistence, octaves - i);
+            float amp = (float) Math.pow(persistence, i + 1);
 
-            frequency[i] = 1 << i;
+            frequency[i] = 1f / (1 << (octaves - i - 1));
             amplitude[i] = amp;
         }
         return (x, y) -> {
             float value = 0;
             for (int i = 0; i < octaves; i++)
             {
-                value += Noise2D.this.noise(x / frequency[i], y / frequency[i]) * amplitude[i];
+                value += Noise2D.this.noise(x * frequency[i], y * frequency[i]) * amplitude[i];
             }
             return value;
         };
