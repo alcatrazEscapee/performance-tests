@@ -1,0 +1,18 @@
+Benchmark                                                 Mode  Cnt   Score   Error  Units
+MaybeVsOptionalBenchmark.benchmarkOptionalNew             avgt   15  25.028 ± 1.066  ns/op
+MaybeVsOptionalBenchmark.benchmarkMaybeNew                avgt   15  29.014 ± 3.828  ns/op
+
+MaybeVsOptionalBenchmark.benchmarkOptionalIsPresent       avgt   15  24.688 ± 0.767  ns/op
+MaybeVsOptionalBenchmark.benchmarkMaybeIsPresent          avgt   15  27.994 ± 4.216  ns/op
+
+MaybeVsOptionalBenchmark.benchmarkOptionalOrElse          avgt   15  24.883 ± 0.797  ns/op
+MaybeVsOptionalBenchmark.benchmarkMaybeOrElse             avgt   15  24.838 ± 0.935  ns/op
+
+MaybeVsOptionalBenchmark.benchmarkOptionalOr              avgt   15  24.803 ± 0.647  ns/op
+MaybeVsOptionalBenchmark.benchmarkMaybeOr                 avgt   15  24.569 ± 0.126  ns/op
+
+MaybeVsOptionalBenchmark.benchmarkOptionalMapToString     avgt   15  67.577 ± 1.989  ns/op
+MaybeVsOptionalBenchmark.benchmarkMaybeMapToString        avgt   15  67.084 ± 0.307  ns/op
+
+MaybeVsOptionalBenchmark.benchmarkOptionalFilterHashCode  avgt   15  40.836 ± 0.501  ns/op
+MaybeVsOptionalBenchmark.benchmarkMaybeFilterHashCode     avgt   15  40.831 ± 0.194  ns/op
