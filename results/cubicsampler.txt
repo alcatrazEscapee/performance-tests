@@ -1,0 +1,5 @@
+Benchmark                                    Mode  Cnt     Score     Error  Units
+CubicSamplerBenchmark.defaultHomogeneous     avgt   15   993.769 �  25.788  ns/op
+CubicSamplerBenchmark.defaultNonHomogeneous  avgt   15  1243.819 � 239.196  ns/op
+CubicSamplerBenchmark.fastHomogeneous        avgt   15   129.619 �  16.727  ns/op
+CubicSamplerBenchmark.fastNonHomogeneous     avgt   15  2038.063 � 148.298  ns/op

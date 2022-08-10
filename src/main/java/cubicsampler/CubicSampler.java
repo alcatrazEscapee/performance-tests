@@ -54,12 +54,15 @@ public final class CubicSampler
         double totalScale = 0;
         Vec3 sum = Vec3.ZERO;
 
+        // Array where we fill with all the required color samples
         final int[] colorSamples = new int[SAMPLE_BREADTH * SAMPLE_BREADTH * SAMPLE_BREADTH];
+        // If the array is homogeneous, then we just do the final calculation and return that value, we don't need to go through the entire loop.
         if (fillBlockArray(colorSamples, sampler, xf, yf, zf))
         {
             return Vec3.fromRGB24(colorSamples[0]);
         }
 
+        // If the array is not homogeneous, then we can just finish the calculation, with the values we computed
         for (int x = 0; x < SAMPLE_BREADTH; ++x)
         {
             double xDensity = lerp(xd, KERNEL[x + 1], KERNEL[x]);
