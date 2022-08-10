@@ -2,51 +2,61 @@ package cubicsampler;
 
 import java.util.Random;
 
-import org.openjdk.jmh.annotations.Benchmark;
+import org.openjdk.jmh.annotations.*;
 
 public class CubicSamplerBenchmark
 {
     public static final Random RANDOM = new Random();
-    public static final int SIZE = 1000;
-    public static final int[] TEST_COLORS = new int[SIZE];
-    public static final Vec3[] TEST_VECS = new Vec3[SIZE];
 
-    static
+    private static int nextInt()
     {
-        for (int i = 0; i < 1000; i++)
+        return RANDOM.nextInt(1000);
+    }
+
+    @State(Scope.Thread)
+    public static class Context
+    {
+        int constValue;
+        Vec3 constVector;
+        int[] manyValues;
+        Vec3[] manyVectors;
+
+        @Setup(Level.Invocation)
+        public void setup()
         {
-            TEST_VECS[i] = new Vec3(RANDOM.nextDouble() * 1000,RANDOM.nextDouble() * 1000, RANDOM.nextDouble() * 1000);
-            TEST_COLORS[i] = RANDOM.nextInt(1000);
+            constValue = nextInt();
+            constVector = new Vec3(nextInt(), nextInt(), nextInt());
+            manyValues = new int[16];
+            manyVectors = new Vec3[16];
+            for (int i = 0; i < 16; i++)
+            {
+                manyValues[i] = nextInt();
+                manyVectors[i] = new Vec3(nextInt(), nextInt(), nextInt());
+            }
         }
     }
 
     @Benchmark
-    public Vec3 defaultSample()
+    public Vec3 defaultHomogeneous(Context context)
     {
-        Vec3 sum = Vec3.ZERO;
-        for (int i = 0; i < SIZE; i++)
-        {
-            final int idx = i;
-            // half homogeneous
-            sum = sum.add(CubicSampler.defaultSample(TEST_VECS[i], (x, y, z) -> new Vec3(5, 5, 5)));
-            // half non-homogeneous
-            sum = sum.add(CubicSampler.defaultSample(TEST_VECS[i], (x, y, z) -> TEST_VECS[idx]));
-        }
-        return sum;
+        return CubicSampler.defaultSample(context.constVector, (x, y, z) -> context.constVector);
     }
 
     @Benchmark
-    public Vec3 fastSample()
+    public Vec3 defaultNonHomogeneous(Context context)
     {
-        Vec3 sum = Vec3.ZERO;
-        for (int i = 0; i < SIZE; i++)
-        {
-            final int idx = i;
-            // half homogeneous
-            sum = sum.add(CubicSampler.precomputingSample(TEST_VECS[i], (x, y, z) -> 5));
-            // half non-homogeneous
-            sum = sum.add(CubicSampler.precomputingSample(TEST_VECS[i], (x, y, z) -> TEST_COLORS[idx]));
-        }
-        return sum;
+        return CubicSampler.defaultSample(context.constVector, (x, y, z) -> context.manyVectors[(x ^ y ^ z) & 15]);
+    }
+
+    @Benchmark
+    public Vec3 fastHomogeneous(Context context)
+    {
+        return CubicSampler.precomputingSample(context.constVector, (x, y, z) -> context.constValue);
+    }
+
+    @Benchmark
+    public Vec3 fastNonHomogeneous(Context context)
+    {
+        return CubicSampler.precomputingSample(context.constVector, (x, y, z) -> context.manyValues[(x ^ y ^ z) & 15]);
     }
 }
