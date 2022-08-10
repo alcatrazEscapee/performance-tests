@@ -1,6 +1,6 @@
 *
 !*/
-!.gitignore
+!/.gitignore
 
 # Source code
 !gradle/**

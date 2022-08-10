@@ -25,7 +25,7 @@ test {
 
 jmh {
     jvmArgs = ['-Djmh.separateClasspathJAR=true']
-    includes = ['maybe.MaybeVsOptionalBenchmark']
+    includes = ['cubicsampler.CubicSamplerBenchmark']
     benchmarkMode = ['avgt']
     timeOnIteration = '5s'
     warmup = '5s'
